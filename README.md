@@ -28,7 +28,7 @@ Find the presentation slides for E-smart Shopping [here](https://www.popai.pro/s
 
 ## Screenshots
 
-![Screenshot 1](/screenshots/screenshot1.png)
+![Screenshot 1](/images/first.JPG)
 ![Screenshot 2](/screenshots/screenshot2.png)
 ![Screenshot 3](/screenshots/screenshot3.png)
 
