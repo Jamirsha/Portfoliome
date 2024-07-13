@@ -30,15 +30,15 @@ Find the presentation slides for E-smart Shopping [here](https://www.popai.pro/s
 
 ![Screenshot 1](/images/first.JPG)
 ![Screenshot 2](/images/second.JPG)
-![Screenshot 4](/screenshots/screenshot3.png)
-![Screenshot 5](/screenshots/screenshot3.png)
-![Screenshot 6](/screenshots/screenshot3.png)
-![Screenshot 7](/screenshots/screenshot3.png)
-![Screenshot 8](/screenshots/screenshot3.png)
-![Screenshot 9](/screenshots/screenshot3.png)
-![Screenshot 10](/screenshots/screenshot3.png)
-![Screenshot 11](/screenshots/screenshot3.png)
-![Screenshot 12](/screenshots/screenshot3.png)
+![Screenshot 4](/images/third.JPG)
+![Screenshot 5](/images/fourth.JPG)
+![Screenshot 6](/images/five.JPG)
+![Screenshot 7](/images/six.JPG)
+![Screenshot 8](/images/seven.JPG)
+![Screenshot 9](/images/eight.JPG)
+![Screenshot 10](/images/nine.JPG)
+![Screenshot 11](/images/eleven.JPG)
+![Screenshot 12](/images/twle.JPG)
 
 
 
