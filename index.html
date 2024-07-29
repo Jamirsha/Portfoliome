@@ -6,452 +6,1566 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="port.css">
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset and basic styles */
+ /* Global Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f9fc;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background 0.3s ease;
+}
+
+/* Header */
+.header {
+  background: rgba(44, 62, 80, 0.9);
+  color: #ecf0f1;
+  padding: 20px 0;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background 0.4s, padding 0.4s;
+}
+
+.header.scrolled {
+  background: rgba(44, 62, 80, 1);
+  padding: 10px 0;
+}
+
+ 
+
+.header .logo:hover {
+  color: #3498db;
+  transform: scale(1.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar a {
+  color: #ecf0f1;
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.4s, transform 0.3s;
+}
+
+.navbar a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #3498db;
+  transition: width 0.4s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.navbar a:hover {
+  color: #3498db;
+  transform: translateY(-5px);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* Home Section */
+.home {
+  background: url('images/home-bg.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  color: #ecf0f1;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.home-content {
+  max-width: 800px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s;
+}
+
+.home-content:hover {
+  transform: scale(1.05);
+}
+
+.home-content h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.home-content h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.home-content p {
+  font-size: 22px;
+  margin-bottom: 30px;
+  animation: fadeInUp 1.4s ease-out;
+}
+
+.btn-box {
+  background: linear-gradient(45deg, #3498db, #8e44ad);
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+}
+
+.btn-box:hover {
+  background: linear-gradient(45deg, #2980b9, #9b59b6);
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* About Section */
+.about {
+  display: flex;
+  align-items: center;
+  padding: 80px 20px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.about-img {
+  flex: 1;
+  animation: fadeInLeft 1.2s ease-out;
+}
+
+.about-img img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.about-text {
+  flex: 1;
+  padding-left: 40px;
+  animation: fadeInRight 1.2s ease-out;
+}
+
+.about-text h2 {
+  font-size: 40px;
+  color: #3498db;
+  margin-bottom: 20px;
+}
+
+.about-text h4 {
+  font-size: 26px;
+  color: #8e44ad;
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  font-size: 20px;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.about-text .btn-box {
+  font-size: 20px;
+  padding: 15px 30px;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #3498db, #8e44ad);
+}
+
+/* Services Section */
+.services {
+  padding: 80px 20px;
+  background: #f9f9f9;
+}
+
+.services-container {
+  text-align: center;
+}
+
+.services-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.services-list div {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  flex: 1;
+  max-width: 320px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.services-list div:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.services-list h2 {
+  font-size: 26px;
+  color: #3498db;
+  margin-bottom: 15px;
+}
+
+.services-list p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.services-list .read {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.services-list .read:hover {
+  text-decoration: underline;
+}
+
+/* Skills Section */
+.skills {
+  padding: 80px 20px;
+  background: #fff;
+}
+
+.h2k {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 30px;
+  color: #3498db;
+}
+
+.progress-bar-container {
+  margin: 20px 0;
+}
+
+.progress-bar {
+  background: #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 30px;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar .percentage {
+  height: 100%;
+  background: linear-gradient(45deg, #3498db, #8e44ad);
+  width: 0;
+  transition: width 1s ease-out;
+}
+
+.progress-bar.animate .percentage {
+  width: 90%; /* Adjust based on skill level */
+}
+
+/* Professional Skills Section */
+.professional-skills {
+  padding: 80px 20px;
+  background: #f9f9f9;
+}
+
+.h2k1 {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 30px;
+  color: #3498db;
+}
+
+progress {
+  width: 100%;
+  height: 30px;
+  appearance: none;
+  border-radius: 12px;
+  background: #e0e0e0;
+  position: relative;
+}
+
+progress::-webkit-progress-bar {
+  background: #e0e0e0;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(45deg, #3498db, #8e44ad);
+  transition: width 1s ease-out;
+}
+
+progress::-moz-progress-bar {
+  background: linear-gradient(45deg, #3498db, #8e44ad);
+}
+
+/* Projects Section */
+.projects {
+  padding: 80px 20px;
+  background: #fff;
+}
+
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.project-item {
+  flex: 1;
+  max-width: 360px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.project-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.project-item img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.project-item h3 {
+  font-size: 24px;
+  color: #3498db;
+  margin: 15px 0;
+}
+
+.project-item p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.project-item a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-item a:hover {
+  text-decoration: underline;
+}
+
+/* Contact Section */
+.contact {
+  padding: 80px 20px;
+  background: #f9f9f9;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 1.5s ease-out;
+}
+
+.contact h2 {
+  font-size: 38px;
+  color: #3498db;
+  margin-bottom: 30px;
+}
+
+form .form-group {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus, form textarea:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 8px rgba(0, 122, 255, 0.2);
+  outline: none;
+}
+
+form button {
+  background: linear-gradient(45deg, #3498db, #8e44ad);
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.4s, transform 0.4s, box-shadow 0.4s;
+}
+
+form button:hover {
+  background: linear-gradient(45deg, #2980b9, #9b59b6);
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+  background: rgba(44, 62, 80, 0.9);
+  color: #ecf0f1;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.2);
+}
+
+footer a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.4s;
+}
+
+footer a:hover {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+
+/* Enhanced Services Section Styling */
+.services {
+  padding: 5rem 0;
+  background: radial-gradient(circle, #f8f9fa 0%, #e9ecef 100%);
+  color: #333;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative elements */
+.services::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('path-to-your-background-image.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* Container */
+.services .container {
+  max-width: 1200px;
+}
+
+/* Heading */
+.services h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #212529;
+  position: relative;
+  z-index: 1;
+}
+
+/* Highlight text */
+.services .text-primary {
+  color: #007bff;
+  text-shadow: 1px 1px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #007bff, #17a2b8);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.card:hover {
+  transform: translateY(-15px) rotate(0.5deg);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+}
+
+.card-body {
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.card-body i {
+  display: block;
+  font-size: 50px;
+  margin-bottom: 1rem;
+  color: #007bff; /* Default icon color */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.card-body i:hover {
+  color: #0056b3;
+  transform: scale(1.1);
+}
+
+.card-body i.bx-code {
+  color: #17a2b8;
+}
+
+.card-body i.bx-crop {
+  color: #ffc107;
+}
+
+.card-body i.bx-code.text-danger {
+  color: #dc3545;
+}
+
+.card-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.card-title:hover {
+  color: #007bff;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0, 123, 255, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+}
+
+.btn-primary:hover::after {
+  opacity: 1;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #0056b3;
+  border-color: #004085;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 767.98px) {
+  .services h1 {
+    font-size: 2.5rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+  }
+
+  .btn-primary {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+
+
+
+/* General Styling for Home Section */
+.home {
+    background: linear-gradient(135deg, #d7c1ac, #547e97b3); /* Gradient background for depth */
+    padding: 70px 20px; /* Increased padding for spacious feel */
+    min-height: 100vh; /* Full viewport height */
+    text-align: center; /* Center-align text */
+    color: #fff; /* White text color */
+    position: relative; /* Positioning context for future additions */
+}
+
+/* Home Content Styling */
+.home-content {
+    max-width: 900px; /* Limit content width */
+    margin: 0 auto; /* Center horizontally */
+    padding: 0 20px; /* Responsive padding */
+}
+
+/* Profile Image Styling */
+.home img {
+    border: 5px solid #fff; /* Thicker white border */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); /* Deeper shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.home img:hover {
+    transform: scale(1.05); /* Slightly enlarge image on hover */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Enhanced shadow on hover */
+}
+
+/* Heading Styles */
+.home h3, .home h1 {
+    margin: 15px 0; /* Space around headings */
+    line-height: 1.2; /* Adjust line-height for readability */
+}
+
+.home h1 {
+    font-size: 4.5rem; /* Larger font size for prominence */
+    font-weight: 700; /* Extra bold text */
+    text-transform: uppercase; /* Uppercase for emphasis */
+    letter-spacing: 2px; /* Increased letter spacing */
+    color: #f4f4f4; /* Slightly off-white color */
+}
+
+.home h3 {
+    font-size: 2.25rem; /* Larger font size */
+    font-weight: 300; /* Lighter weight */
+    color: #ddd; /* Slightly lighter color */
+    margin-bottom: 10px; /* Space below secondary heading */
+}
+
+/* Lead Paragraph Styling */
+.home .lead {
+    font-size: 1.5rem; /* Larger text */
+    margin-bottom: 30px; /* Increased space below paragraph */
+    line-height: 1.8; /* Improved readability */
+    color: #ccc; /* Slightly lighter color */
+    max-width: 750px; /* Max width for readability */
+    margin: 0 auto; /* Center horizontally */
+}
+
+/* Social Icons Container */
+.home-sci {
+    margin-bottom: 30px; /* Extra space below social icons */
+}
+
+.home-sci a {
+    color: #fff; /* White color for icons */
+    font-size: 2.25rem; /* Larger icons for visibility */
+    margin: 0 12px; /* Space between icons */
+    transition: color 0.3s, transform 0.3s; /* Smooth color and scale transition */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Shadow for icons */
+}
+
+.home-sci a:hover {
+    color: #ffbb00; /* Change color on hover */
+    transform: scale(1.2); /* Enlarge on hover */
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #007bff; /* Primary button color */
+    border-color: #007bff; /* Border color to match */
+    padding: 12px 30px; /* Larger padding */
+    font-size: 1.25rem; /* Slightly larger font size */
+    border-radius: 30px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(14, 37, 239, 0.2); /* Soft shadow */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker color on hover */
+    border-color: #0056b3; /* Border color on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .home h1 {
+        font-size: 3.5rem; /* Adjust font size for medium screens */
+    }
+
+    .home h3 {
+        font-size: 2rem; /* Adjust font size for medium screens */
+    }
+
+    .home .lead {
+        font-size: 1.25rem; /* Adjust font size for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .home h1 {
+        font-size: 2.75rem; /* Adjust font size for small screens */
+    }
+
+    .home h3 {
+        font-size: 1.75rem; /* Adjust font size for small screens */
+    }
+
+    .home .lead {
+        font-size: 1.125rem; /* Adjust font size for small screens */
+    }
+
+    .home-sci a {
+        font-size: 1.75rem; /* Adjust icon size for small screens */
+        margin: 0 10px; /* Adjust space between icons */
+    }
+}
+
+@media (max-width: 576px) {
+    .home h1 {
+        font-size: 2.25rem; /* Adjust font size for extra small screens */
+    }
+
+    .home h3 {
+        font-size: 1.5rem; /* Adjust font size for extra small screens */
+    }
+
+    .home .lead {
+        font-size: 1rem; /* Adjust font size for extra small screens */
+    }
+
+    .home-sci a {
+        font-size: 1.5rem; /* Adjust icon size for extra small screens */
+    }
+}
+/* General Header Styling */
+.header {
+  padding: 15px 0;
+  background: #343a40; /* Dark background for header */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
+  position: relative; /* Ensures shadow doesn't cause overflow issues */
+}
+
+/* Logo Styling */
+.logo {
+  font-size: 1.6rem; /* Slightly larger logo text */
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Adds spacing between letters */
+  font-family: 'Arial', sans-serif; /* Use a different font for the logo if needed */
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  align-items: center; /* Align items vertically center */
+}
+
+/* Navigation Link Styling */
+.nav-link {
+  color: white;
+  margin: 0 20px; /* More spacing between links */
+  text-decoration: none;
+  font-size: 1.1rem; /* Slightly larger font size */
+  padding: 5px 10px; /* Add padding for clickable area */
+  border-radius: 4px; /* Rounded corners for hover effect */
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* Transition for multiple properties */
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #007bff; /* Blue color on hover/focus */
+  background-color: rgba(255, 255, 255, 0.1); /* Light background on hover/focus */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Active Link Styling */
+.nav-link.active,
+.nav-link[aria-current="page"] {
+  color: #007bff; /* Blue color for active link */
+  border-bottom: 2px solid #007bff; /* Blue underline for active link */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack logo and navbar vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .logo {
+    margin-bottom: 15px; /* Space between logo and navbar */
+  }
+
+  .navbar {
+    flex-direction: column; /* Stack navbar items vertically */
+  }
+
+  .nav-link {
+    margin: 10px 0; /* Space between links */
+    width: 100%; /* Full-width links */
+    text-align: center; /* Center text */
+  }
+}
+
+/* General Styles */
+#about {
+  background: linear-gradient(to right, #f8f9fa, #e9ecef); /* Gradient background */
+  padding: 6rem 1.5rem; /* More balanced padding */
+  position: relative; /* Position context for potential pseudo-elements */
+}
+
+/* Container Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem; /* Add horizontal padding for responsiveness */
+}
+
+/* Flexbox Adjustments */
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; /* Center items horizontally */
+  gap: 2rem; /* Add space between items */
+}
+
+/* Image Styles */
+.about-img {
+  position: relative; /* For positioning pseudo-elements */
+}
+
+.about-img img {
+  border-radius: 1.5rem; /* More rounded corners */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+  transition: transform 0.5s ease, box-shadow 0.5s ease; /* Longer transition */
+}
+
+.about-img img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+/* Text Styles */
+.about-text {
+  text-align: center; /* Center align text */
+  max-width: 600px; /* Limit text width for readability */
+}
+
+.about-text h2 {
+  font-size: 3.2rem; /* Larger font size */
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  color: #343a40;
+  position: relative;
+  display: inline-block; /* Required for pseudo-element */
+}
+
+.about-text h2::after {
+  content: ''; /* Pseudo-element for decorative line */
+  display: block;
+  width: 60%;
+  height: 4px;
+  background: #007bff; /* Primary color */
+  border-radius: 2px;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about-text h4 {
+  font-size: 1.8rem; /* Larger subtitle */
+  margin-bottom: 1.5rem;
+  color: #ffc107;
+}
+
+.about-text p.lead {
+  font-size: 1.3rem; /* Larger text */
+  line-height: 1.8;
+  color: #495057;
+  margin-bottom: 2.5rem;
+}
+
+.about-text .btn {
+  padding: 0.875rem 2.5rem; /* Larger padding */
+  font-size: 1.25rem;
+  border-radius: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  background: linear-gradient(45deg, #007bff, #0056b3); /* Gradient button */
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about-text .btn:hover {
+  background: linear-gradient(45deg, #0056b3, #003d79); /* Darker gradient on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-img, .about-text {
+    min-width: 100%; /* Full width on smaller screens */
+    text-align: center; /* Center align text */
+    margin-bottom: 2rem; /* Space between image and text */
+  }
+
+  .about-text h2 {
+    font-size: 2.5rem; /* Smaller heading font size */
+  }
+
+  .about-text h4 {
+    font-size: 1.4rem; /* Smaller subtitle font size */
+  }
+
+  .about-text p.lead {
+    font-size: 1.15rem; /* Smaller text size */
+  }
+
+  .about-text .btn {
+    font-size: 1.1rem; /* Smaller button text size */
+    padding: 0.75rem 1.75rem; /* Adjust padding */
+  }
+}
+
+@media (max-width: 576px) {
+  .about-text h2 {
+    font-size: 2rem; /* Further reduction for very small screens */
+  }
+
+  .about-text h4 {
+    font-size: 1.25rem; /* Further reduction for very small screens */
+  }
+
+  .about-text p.lead {
+    font-size: 1rem; /* Further reduction for very small screens */
+  }
+
+  .about-text .btn {
+    font-size: 1rem; /* Further reduction for very small screens */
+    padding: 0.75rem 1.5rem; /* Further adjust padding */
+  }
+}
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f7f9fc;
+}
+
+/* Projects Section */
+.projects {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 60px;
+  font-size: 3.5rem;
+  color: #333;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Project Container */
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.project-item {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 4px solid transparent;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-item:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+  border-color: #007bff;
+}
+
+.project-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 4px solid #007bff;
+  border-radius: 15px 15px 0 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-item:hover img {
+  transform: scale(1.1);
+}
+
+.project-item h2 {
+  font-size: 2.4rem;
+  color: #333;
+  margin: 20px 0;
+  font-weight: 600;
+  position: relative;
+}
+
+.project-item p {
+  font-size: 1.15rem;
+  color: #666;
+  margin: 0 20px 20px;
+  line-height: 1.7;
+}
+
+.btn-box {
+  display: inline-block;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-box:hover {
+  background: linear-gradient(135deg, #0056b3, #003d79);
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .project-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-item {
+    max-width: 90%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-item {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  .project-item h2 {
+    font-size: 1.8rem;
+  }
+
+  .project-item p {
+    font-size: 1.1rem;
+  }
+
+  .btn-box {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+  }
+}
+ /* General container styling */
+.contact {
+  background: #f9f9f9; /* Keeping the existing background color */
+  padding: 80px 0;
+}
+
+.contact .container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact .container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Header styling */
+.contact h1 {
+  text-align: center;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.6em;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.contact h1::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 6px;
+  background: #007bff;
+  border-radius: 3px;
+  position: absolute;
+  bottom: -15px;
+  left: calc(50% - 40px);
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+form label {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+form input,
+form textarea {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 24px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* Textarea specific styling */
+form textarea {
+  resize: vertical;
+  min-height: 160px;
+}
+
+/* Button styling */
+button {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 14px 24px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: width 0.3s, height 0.3s;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+button:hover::before {
+  width: 0;
+  height: 0;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0056b3, #007bff);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact .container {
+    padding: 20px;
+  }
+  
+  .contact h1 {
+    font-size: 2.2em;
+  }
+  
+  form input,
+  form textarea {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+}
+
+
+  </style>
 </head>
 
 <body>
 
-
-
-  
-  <header class="header">
-    <a href="#" class="logo">Portfolio</a>
-    <nav class="navbar">
-      <a href="#home" style="--i:1" class="active">Home</a>
-      <a href="#about" style="--i:2">About</a>
-      <a href="#services" style="--i:3">Skills</a>
-      <a href="#project" style="--i:5">Project</a>
-
-      <a href="#skills" style="--i:4">Portfolio</a>
-      <a href="#contact" style="--i:5">Contact</a>
- 
-    </nav>
-
-    
+  <header class="header  bg-dark text-white m-auto">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="#" class="logo text-white font-weight-bold">Portfolio</a>
+      <nav class="navbar">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Skills</a>
+        <a href="#project" class="nav-link">Project</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
   </header>
-  <section class="home" id="home">
+
+  <section class="home d-flex align-items-center justify-content-center text-center text-white mt-3" id="home">
     <div class="home-content">
-      <img src="images/jp.png" alt="" class="im3">
-    
-
-      <h3>hello,It's me</h3>
-      <h1>Shah Jamir</h1>
-      <h3>And I'm a <span class="text"></span> </h3>
-      <pre>Java Developer with completed Msc(cs) Departement<br>expertise is to create and  website design, Fronted, and Backend many more...
-</pre>
-      <div class="home-sci">
-        <a href="https://www.facebook.com/jamir.s.773/" style="--i:7"><i class='bx bxl-facebook-circle'></i> </a>
-        <a href="https://www.instagram.com/zamirss___/" style="--i:8"> <i class='bx bxl-instagram'></i></a>
-        <a href="http://linkedin.com/in/jamir-shaha-368482308" style="--i:9"><i class='bx bxl-linkedin'></i> </a>
-        <a href="https://tinyurl.com/8h2x8zmd" style="--i:10"><i class='bx bxl-whatsapp'></i></a>
+      <img src="jp.png" alt="Profile Image" class="img-fluid rounded-circle mb-3" style="width: 150px;">
+      <h3 class="display-4">Hello, It's me</h3>
+      <h1 class="display-3">Shah Jamir</h1>
+      <h3 class="display-4">And I'm a <span class="text"></span></h3>
+      <p class="lead">Java Developer with completed MSc (CS) Department. social-iconExpertise includes website design, frontend, and backend development, and much more...</p>
+      <div class="home-sci mb-3">
+        <a href="https://www.facebook.com/jamir.s.773/" class=" text-white mr-3"><i class='bx bxl-facebook-circle'></i></a>
+        <a href="https://www.instagram.com/zamirss___/" class="social-icon text-white mr-3"><i class='bx bxl-instagram'></i></a>
+        <a href="http://linkedin.com/in/jamir-shaha-368482308" class="social-icon text-white mr-3"><i class='bx bxl-linkedin'></i></a>
+        <a href="https://tinyurl.com/8h2x8zmd" class="social-icon text-white"><i class='bx bxl-whatsapp'></i></a>
       </div>
-      <a href="#" class="btn-box"> More About Me</a>
+      <a href="http://linkedin.com/in/jamir-shaha-368482308" class="btn btn-primary btn-lg">More About Me</a>
     </div>
- 
-  </section>
-  <section class="about" id="about">
-    <div class="about-img">
-      <img src="images/jp2.png" alt="" class="im2">
-    </div>
-    
-    <div class="about-text">
-      <h2>About <span>Me</span></h2>
-      <h4>Full Stack Developer!</h4>
-      <p>Recent Computer Science postgraduate with a strong foundation in web development technologies, including HTML, CSS,
-        JavaScript, and Angular. Eager to kick-start a career as a full stack developer, with a passion for building
-        dynamic and user-friendly web applications. Quick learner, team player, and dedicated problem solver, excited to
-        contribute fresh ideas and grow within a collaborative tech environment.</p>
-      <a href="#" class="btn-box">More About Me</a>
-    </div>
-
   </section>
 
-
- 
-
-  <section class="services" id="services">
-    <div class="services-container">
-      <h1 class="sub-title">My <span>Services</span></h1>
-      <div class="services-list">
-        <div>
-          <i class='bx bx-code' style='color:#15dfed'></i>
-          <h2>JavaSE/JavaEE</h2>
-          <p>A Java developer designs and builds applications using the Java programming language. They work on development, maintenance, database integration, and ensure software quality through testing. Key skills include Java programming, frameworks like Spring, database management, web development, and problem-solving. A relevant degree and continuous learning are important for this role..</p>
-          <a href="#" class="read">Learn More</a>
-        </div>
-        <div>
-          <i class='bx bx-crop' style='color:#ffbb2c'></i>
-          <h2>Web Development</h2>
-          <p>Web developers build and maintain websites and web applications, using programming, design tools, and languages such as HTML, CSS, Java and JavaScript to meet both client and end-user needs.</p>
-          <a href="#" class="read">Learn More</a>
-        </div>
-        <div>
-          <i class='bx bx-code code-icon' style='color:#ff5828'></i>
-          <h2>BackEnd Development</h2>
-          <p>As a fresher in backend development, I am enthusiastic about learning and applying my skills in Java. I am focused on understanding database management, API development, and building scalable server-side applications. With a passion for problem-solving and attention to detail, I aim to contribute to projects by ensuring efficient and secure backend functionalities</p>
-          <a href="https://www.instagram.com/zamirsss12?igsh=eTBiZGI0NjVsbmox" class="read">Learn More</a>
-        </div>
+  <section class="about py-5 " id="about">
+    <div class="container d-flex flex-wrap align-items-center">
+      <div class="about-img col-md-6 ">
+        <img src="jp.png" alt="About Me" class="img-fluid rounded">
+      </div>
+      <div class="about-text col-md-6 pl-md-5">
+        <h2 class="display-4">About <span class="text-primary">Me</span></h2>
+        <h4 class="text-warning">Full Stack Developer!</h4>
+        <p class="lead">Recent Computer Science postgraduate with a strong foundation in web development technologies, including HTML, CSS, JavaScript, and Angular. Eager to kick-start a career as a full stack developer, with a passion for building dynamic and user-friendly web applications. Quick learner, team player, and dedicated problem solver, excited to contribute fresh ideas and grow within a collaborative tech environment.</p>
+        <a href="http://linkedin.com/in/jamir-shaha-368482308s" class="btn btn-primary btn-lg">More About Me</a>
       </div>
     </div>
   </section>
 
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="cont">
-
-  <div class="skills" id="skills">
-    <h2 class="h2k">Technical Skills</h2>
-
-    <div class="progress-bar-container">
-      <span class="icon"><i style="color: #d2e014" class='bx bxl-c-plus-plus'></i></span>
-      <h2>C/C++</h2>
-      <div class="progress-bar">
-        <span class="percentage c"></span>
-      </div>
-    </div>
-
-    <div class="progress-bar-container">
-      <span class="icon"><i style="color: #10c0eb" class='bx bxl-java'></i></span>
-      <h2>Java</h2>
-      <div class="progress-bar">
-
-        <span class="percentage java"></span>
-      </div>
-    </div>
-
-
-
-    <div class="progress-bar-container">
-      <span class="icon"> <i style="color: #0fcc25" class='bx bxl-html5'></i></span>
-      <h2>HTML</h2>
-      <div class="progress-bar">
-        <span class="percentage html"></span>
-      </div>
-    </div>
-
-    <div class="progress-bar-container">
-      <span class="icon"><i style="color: #b80cb2" class='bx bxl-css3'></i></span>
-
-      <h2>CSS</h2>
-      <div class="progress-bar">
-        <span class="percentage css"></span>
-      </div>
-    </div>
-
-    <div class="progress-bar-container">
-      <span class="icon"><i style="color: #b30c0c" class='bx bxl-javascript'></i></span>
-      <h2>JavaScript</h2>
-      <div class="progress-bar">
-        <span class="percentage javascript"></span>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="clock">
-
-    <h2 class="h2k1">Professional Skills</h2>
-    
-      <div class="mainbod">
-        <div class="progress2-bar2-container22">
-          <h2 class="h21">
-            <label for="html2">Creativity</label>
-          </h2>
-          <div class="progress2-bar2 html2">
-            <progress id="html2" min="0" max="100" value="92"></progress>
+  <section class="services py-5 bg-light" id="services">
+    <div class="container text-center">
+      <h1 class="display-4">My <span class="text-primary">Services</span></h1>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-body text-center">
+              <i class='bx bx-code text-info' style='font-size: 40px;'></i>
+              <h2 class="card-title mt-3">JavaSE/JavaEE</h2>
+              <p class="card-text">A Java developer designs and builds applications using the Java programming language. They work on development, maintenance, database integration, and ensure software quality through testing. Key skills include Java programming, frameworks like Spring, database management, web development, and problem-solving.</p>
+              <a href="https://www.w3schools.com/java/" class="btn btn-primary">Learn More</a>
+            </div>
           </div>
         </div>
-    
-        <div class="progress2-bar2-container22">
-          <h2 class="h21">
-            <label for="css">Communication</label>
-          </h2>
-          <div class="progress2-bar2 css2">
-            <progress id="css2" min="0" max="100" value="70"></progress>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-body text-center">
+              <i class='bx bx-crop text-warning' style='font-size: 40px;'></i>
+              <h2 class="card-title mt-3">Web Development</h2>
+              <p class="card-text">Web developers build and maintain websites and web applications, using programming, design tools, and languages such as HTML, CSS, Java, and JavaScript to meet both client and end-user needs.</p>
+              <a href="https://www.geeksforgeeks.org/web-development/" class="btn btn-primary">Learn More</a>
+            </div>
           </div>
         </div>
-    
-        <div class="progress2-bar2-container22">
-          <h2 class="h21">
-            <label for="js2">Team Work</label>
-          </h2>
-          <div class="progress2-bar2 js2">
-            <progress id="js2" min="0" max="100" value="80"></progress>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-body text-center">
+              <i class='bx bx-code text-danger' style='font-size: 40px;'></i>
+              <h2 class="card-title mt-3">BackEnd Development</h2>
+              <p class="card-text">As a fresher in backend development, I am enthusiastic about learning and applying my skills in Java. I am focused on understanding database management, API development, and building scalable server-side applications. With a passion for problem-solving and attention to detail, I aim to contribute to projects by ensuring efficient and secure backend functionalities.</p>
+              <a href="https://www.geeksforgeeks.org/backend-technologies/" class="btn btn-primary">Learn More</a>
+            </div>
           </div>
-    
         </div>
-    
       </div>
-      <div class="mainbod">
-        <div class="progress2-bar2-container22">
-          <h2 class="h21">
-            <label for="html2">Responsibility</label>
-          </h2>
-          <div class="progress2-bar2 html2">
-            <progress id="html2" min="0" max="100" value="90"></progress>
-          </div>
-        </div>
-    
-        <div class="progress2-bar2-container22">
-          <h2 class="h21">
-            <label for="css2">Negotiation</label>
-          </h2>
-          <div class="progress2-bar2 css2">
-            <progress id="css2" min="0" max="100" value="65"></progress>
-          </div>
-        </div>
-    
-        <div class="progress2-bar2-container22">
-          <h2 class="h21">
-            <label for="js2">Writing
-            </label>
-          </h2>
-          <div class="progress2-bar2 js2">
-            <progress id="js2" min="0" max="100" value="73"></progress>
-          </div>
-    
-        </div>
-    
-      </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      </section>
     </div>
+  </section>
+
+  <section class="skills py-5" id="skills">
+    <div class="container">
+      <h2 class="text-center display-4">Technical Skills</h2>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <h4><i class='bx bxl-c-plus-plus text-success' style="font-size: 30px;"></i> C/C++</h4>
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <h4><i class='bx bxl-java text-primary' style="font-size: 30px;"></i> Java</h4>
+          <div class="progress">
+            <div class="progress-bar bg-primary" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <h4><i class='bx bxl-html5 text-success' style="font-size: 30px;"></i> HTML</h4>
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <h4><i class='bx bxl-css3 text-info' style="font-size: 30px;"></i> CSS</h4>
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <h4><i class='bx bxl-javascript text-warning' style="font-size: 30px;"></i> JavaScript</h4>
+          <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="professional-skills py-5 bg-light" id="professional-skills">
+    <div class="container">
+      <h2 class="text-center display-4">Professional Skills</h2>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <h4>Problem Solving</h4>
+          <progress value="80" max="100" class="w-100"></progress>
+        </div>
+        <div class="col-md-6 mb-4">
+          <h4>Team Collaboration</h4>
+          <progress value="85" max="100" class="w-100"></progress>
+        </div>
+        <div class="col-md-6 mb-4">
+          <h4>Adaptability</h4>
+          <progress value="90" max="100" class="w-100"></progress>
+        </div>
+        <div class="col-md-6 mb-4">
+          <h4>Attention to Detail</h4>
+          <progress value="75" max="100" class="w-100"></progress>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="projects" class="projects">
+    <div class="container">
+      <h1>Projects</h1>
+      <div class="project-container">
+        <!-- New Project: E-Smart Shopping -->
+        <div class="project-item">
+          <img src="2.jpg" alt="E-Smart Shopping" class="img-fluid mb-3" style="border-radius: 12px;">
+          <h2>E-Smart Shopping</h2>
+          <p>
+            Developed a comprehensive e-commerce platform 'E-smart Shopping' aimed at delivering a seamless shopping experience to users. The project focused on integrating essential features for both customers and administrators to manage products, orders, and payments effectively.
+          </p>
+          <a href="https://github.com/Jamirsha/Project-.git" target="_blank" class="btn-box">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
   
-</div>
-
- 
- 
-
-</div>
-
-  
-
-<div>
-  <nav class="menu2">
-    <input type="checkbox" href="#" class="menu2-open" name="menu2-open" id="menu2-open" />
-    <label class="menu2-open-button" for="menu2-open">
-     <span class="lines line-1"></span>
-     <span class="lines line-2"></span>
-     <span class="lines line-3"></span>
-   </label>
- 
-    <a href="images/jamircv.pdf"  style="color: #081b29" class="menu2-item blue"><i class='bx bx-file'></i> </a>
-    <a href="https://www.facebook.com/jamir.s.773/"style="color: #081b29" class="menu2-item green"> <i class='bx bxl-facebook-circle'></i> </a>
-    <a href="http://linkedin.com/in/jamir-shaha-368482308" style="color: #081b29" class="menu2-item red"><i class='bx bxl-linkedin'></i> </a>
-    <a href="https://tinyurl.com/8h2x8zmd" style="color: #081b29" class="menu2-item purple"><i class='bx bxl-whatsapp'></i>  </a>
-    <a href="https://www.instagram.com/zamirsss12?igsh=eTBiZGI0NjVsbmox"  style="color: #081b29" class="menu2-item orange"> <i class='bx bxl-instagram'></i> </a>
-    <a href="images/jamircv.pdf" class="menu2-item lightblue"> <i style="color: #081b29" class='bx bxs-file-pdf'></i> </a>
-
-     
-
- </nav>
-</div>
-
-  <section>
-    <div id="Portfollio" id="project">
-      <div class="main-text" id="project">
-        <h2>Latest<span> Project</span></h2>
-
-
-        <div class="portfollio-content">
-          <div class="row">
-            <img src="images/1.jpg">
-            <div class="layer">
-              <h5>E-smart Shopping</h5>
-              <p> E-smart Shopping" has laid a solid foundation with Java EE, MySQL, and frontend technologies like Bootstrap and JavaScript. To further elevate the platform, several key areas can be focused on. User experience (UX) enhancements are paramount; conducting thorough UX testing and iterating based on feedback can refine navigation, improve layout intuitiveness, and optimize mobile responsiveness. Implementing personalized recommendations based on user behavior and preferences can boost engagement and conversion rates.
-              </p>
-              <a href="#"><i class="bx bx-link-external" style="color: aliceblue;"></i></a>
-
-
-            </div>
-          </div>
-
-          <div class="row">
-            <img src="images/2.jpg">
-            <div class="layer">
-              <h5>E-smart Shopping
-              </h5>
-              <p>E-smart Shopping" has leveraged a strong tech stack including Java EE, MySQL, Bootstrap, and JavaScript to deliver a seamless e-commerce experience. Moving forward, scalability and technical enhancements can further elevate the platform.
-
-                Firstly, optimizing database performance and scalability is crucial. This can be achieved by fine-tuning queries, indexing frequently accessed data, and considering database partitioning strategies as the user base grows. Implementing a NoSQL solution alongside MySQL for certain types of data, such as product metadata or user preferences, could also enhance performance and flexibility. </p>
-              <a href="#"><i class="bx bx-link-external" style="color: aliceblue;"></i></a>
-
-
-            </div>
-          </div>
-
-          <div class="row">
-            <img src="images/3.jpg">
-            <div class="layer">
-              <h5>E-smart Shopping</h5>
-              <p> E-smart Shopping" incorporates essential features for streamlined user interaction and secure transaction management.
-
-                Registration & Login:
-                Implemented with Java EE, the platform ensures secure user authentication and session management. Registration processes are optimized for efficiency, storing user data securely in MySQL for personalized shopping experiences.
-                
-                Cart & Checkout:
-                The platform features a responsive cart page with real-time updates using Bootstrap and JavaScript. This simplifies the user experience by allowing seamless item management. The checkout process supports multiple payment gateways such as PayPal and Stripe, secured with HTTPS encryption for safe transactions.
-                
-                Orders & Tracking:
-                Users can view detailed order histories and track deliveries through a dedicated orders page. Each transaction is securely recorded in MySQL, providing transparency and enabling users to monitor shipment progress via integrated shipping APIs. The page also facilitates returns and customer support interactions, ensuring efficient issue resolution.</p>
-              <a href="#"><i class="bx bx-link-external" style="color: aliceblue;"></i></a>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <section class="contact" id="contact">
-    <div class="contact-text">
-      <h2>Contact <span>Me</span></h2>
-      <h4>Let's work Together </h4>
-      <p>To work in a firm with a professional work driven environment where I can utilize 
-        and apply my knowledge, skills which would enable me to grow while fulfilling 
-        organization goals.
-        </p>
-      <div class="contact-list">
-       <li> <i class='bx bxs-send'></i>jamirsh2@gmail.com</li>
-       <li><i class='bx bx-phone'></i>7057926184</li>
-      </div>
-      <div class="home-sci">
-        <a href="https://www.facebook.com/jamir.s.773/" style="--i:7"><i class='bx bxl-facebook-circle'></i> </a>
-        <a href="https://www.instagram.com/zamirsss12?igsh=eTBiZGI0NjVsbmox" style="--i:8"> <i class='bx bxl-instagram'></i></a>
-        <a href="http://linkedin.com/in/jamir-shaha-368482308" style="--i:9"><i class='bx bxl-linkedin'></i> </a>
-
-
-        <a href="https://tinyurl.com/8h2x8zmd" style="--i:10"><i class='bx bxl-whatsapp'></i></a>
-      </div>
-    </div>
-
-    </div>
-    <div class="contact-form">
-      <form action="">
-        <input type="" placeholder="Enter your Name " required>
-        <input type="email" placeholder="Enter your Email " required>
-        <input type="" placeholder="Enter your Subject ">
-        <textarea name="" id="" cols="40" rows="10" placeholder="" Enter your Message></textarea>
-
-        <input type="submit" value="submit" class="send"></a>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h1>Contact Me</h1>
+      <form action="your-server-endpoint" method="post">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
       </form>
-
     </div>
   </section>
+ 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="last-text">
-  </div>
-  <a href="#" class="top"><i class='bx bx-up-arrow-alt'></i></a>
-
-
-  <footer class="footer">
-    <p>&copy; 2023 Jamir Shaha - All Rights Reserved</p>
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2024 Shah Jamir. All Rights Reserved.</p>
   </footer>
-  <script src="/html/Main.js">hhh</script>
-  
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Typed.js Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var options = {
+        strings: ['Web Developer', 'Java Developer', 'Software Engineer'],
+        typeSpeed: 100,
+        backSpeed: 50,
+        loop: true
+      };
+      var typed = new Typed('.text', options);
+    });
+  </script>
 </body>
 
 </html>
